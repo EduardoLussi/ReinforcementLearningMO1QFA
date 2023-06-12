@@ -5,7 +5,7 @@ import tensorflow_probability as tfp
 from networks import ActorCriticNetwork
 
 class Agent:
-    def __init__(self, alpha=0.008, gamma=0.99):
+    def __init__(self, alpha=0.01, gamma=0.99):
         self.gamma = gamma
         self.action = None
         
@@ -16,8 +16,8 @@ class Agent:
         state = tf.convert_to_tensor([observation])
         _, probs = self.actor_critic(state)
 
-        # default_amp = 0.05021718 # ibmq_lima
-        default_amp = 0.10223725901141269
+        default_amp = 0.05021718 # ibmq_lima
+        # default_amp = 0.10223725901141269
         max_amp = default_amp + 0.001
         min_amp = default_amp - 0.001
 

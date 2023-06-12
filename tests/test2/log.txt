@@ -1,0 +1,887 @@
+35 EPISODES
+1024+512
+alpha=0.01
+gamma=0.99
+default_amp=0.05021718 +/- 0.001
+reward=np.exp(-150*(1-reward))
+
+PS D:\Dudu\CCO\Mestrado\Disciplinas\INE6116000 - Inteligência Artificial Conexionista\Trabalho Final\Código> python main.py
+2023-06-08 08:54:05.322668: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2023-06-08 08:54:05.323008: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2023-06-08 08:54:16.599395: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2023-06-08 08:54:16.599960: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cublas64_11.dll'; dlerror: cublas64_11.dll not found
+2023-06-08 08:54:16.600540: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cublasLt64_11.dll'; dlerror: cublasLt64_11.dll not found
+2023-06-08 08:54:16.601023: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cufft64_10.dll'; dlerror: cufft64_10.dll not found
+2023-06-08 08:54:16.601690: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'curand64_10.dll'; dlerror: curand64_10.dll not found
+2023-06-08 08:54:16.602102: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cusolver64_11.dll'; dlerror: cusolver64_11.dll not found
+2023-06-08 08:54:16.602510: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cusparse64_11.dll'; dlerror: cusparse64_11.dll not found
+2023-06-08 08:54:16.603032: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudnn64_8.dll'; dlerror: cudnn64_8.dll not found
+2023-06-08 08:54:16.603216: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1934] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2023-06-08 08:54:16.603960: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in 
+performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+====================================================================================================
+EPISODE 0
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.98876953  0.76123047  0.21777344  0.06152344  0.51367188  0.94482422
+  0.90527344  0.39208984  0.05273438  0.25878906  0.74658203 10.        ]
+Error: [0.01123047 0.05352296 0.0452038  0.04126992 0.08482929 0.02419745
+ 0.01535333 0.03675274 0.03248086 0.08621943 0.03887452]
+Reward: 0.8182046591130575
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.96533203  0.59277344  0.16894531  0.12207031  0.59765625  0.92285156
+  0.81396484  0.33398438  0.11181641  0.36181641  0.78027344 21.        ]
+Error: [0.03466797 0.11493407 0.00362432 0.1018168  0.16881367 0.0022248
+ 0.10666192 0.09485821 0.09156289 0.18924677 0.07256593]
+Reward: 0.32438334875268726
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 0: score 1.1, avg_score 1.1
+
+====================================================================================================
+EPISODE 1
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.99414062  0.76318359  0.20849609  0.05615234  0.4921875   0.93164062
+  0.90332031  0.40087891  0.04248047  0.25146484  0.73828125 10.        ]
+Error: [0.00585938 0.05547609 0.03592646 0.03589883 0.06334492 0.01101386
+ 0.01730645 0.02796367 0.02222696 0.07889521 0.03057374]
+Reward: 0.8640785053750027
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.85080489516258e+3
+Observation: [ 0.95751953  0.58544922  0.16943359  0.10986328  0.57470703  0.9140625
+  0.84179688  0.34179688  0.1015625   0.33203125  0.75292969 21.        ]
+Error: [0.04248047 0.12225829 0.00313604 0.08960977 0.14586445 0.00656427
+ 0.07882989 0.08704571 0.08130899 0.15946162 0.04522218]
+Reward: 0.4241002574221414
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 1: score 1.3, avg_score 1.2
+
+====================================================================================================
+EPISODE 2
+========== STEP ==========
+Action: 49.989003688097e+3
+Observation: [ 0.98876953  0.75488281  0.23681641  0.05029297  0.44042969  0.89990234
+  0.93798828  0.48535156  0.0625      0.16259766  0.625      10.        ]
+Error: [0.01123047 0.04717531 0.06424677 0.03003946 0.01158711 0.02072442
+ 0.01736151 0.05650898 0.04224649 0.00997198 0.08270751]
+Reward: 0.8331036179332005
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.503600388765335e+3
+Observation: [ 0.97021484  0.71533203  0.26416016  0.08056641  0.43896484  0.83984375
+  0.8984375   0.50244141  0.12304688  0.20800781  0.62158203 21.        ]
+Error: [0.02978516 0.00762452 0.09159052 0.06031289 0.01012226 0.08078302
+ 0.02218927 0.07359883 0.10279336 0.03543818 0.08612548]
+Reward: 0.6736126962240054
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 2: score 1.5, avg_score 1.3
+
+====================================================================================================
+EPISODE 3
+========== STEP ==========
+Action: 51.20137333869934e+3
+Observation: [ 0.9921875   0.76123047  0.23144531  0.05712891  0.50048828  0.91552734
+  0.90478516  0.39501953  0.04443359  0.24902344  0.72900391 10.        ]
+Error: [0.0078125  0.05352296 0.05887568 0.03687539 0.0716457  0.00509942
+ 0.01584161 0.03382305 0.02418008 0.0764538  0.0212964 ]
+Reward: 0.838248734591988
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.91838166117668e+3
+Observation: [ 0.95654297  0.58398438  0.18261719  0.11767578  0.55126953  0.91552734
+  0.83544922  0.33984375  0.09082031  0.328125    0.75634766 21.        ]
+Error: [0.04345703 0.12372313 0.01004755 0.09742227 0.12242695 0.00509942
+ 0.08517755 0.08899883 0.0705668  0.15555537 0.04864015]
+Reward: 0.44734890078177797
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 3: score 1.3, avg_score 1.3
+
+====================================================================================================
+EPISODE 4
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.99169922  0.72802734  0.21728516  0.05566406  0.50341797  0.93066406
+  0.90576172  0.38818359  0.04199219  0.23876953  0.75       10.        ]
+Error: [0.00830078 0.02031984 0.04471552 0.03541055 0.07457539 0.0100373
+ 0.01486505 0.04065899 0.02173867 0.0661999  0.04229249]
+Reward: 0.8625233514152393
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.75361579656601e+3
+Observation: [ 0.95019531  0.59375     0.17431641  0.11376953  0.56738281  0.91210938
+  0.83154297  0.36474609  0.09667969  0.33544922  0.75048828 21.        ]
+Error: [0.04980469 0.11395751 0.00174677 0.09351602 0.13854023 0.00851739
+ 0.0890838  0.06409649 0.07642617 0.16287959 0.04278077]
+Reward: 0.44171849093004656
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 4: score 1.3, avg_score 1.3
+
+====================================================================================================
+EPISODE 5
+========== STEP ==========
+Action: 50.18759146332741e+3
+Observation: [ 0.98681641  0.75830078  0.23388672  0.05175781  0.45458984  0.88769531
+  0.93945312  0.47167969  0.06884766  0.17529297  0.65234375 10.        ]
+Error: [0.01318359 0.05059327 0.06131709 0.0315043  0.02574726 0.03293145
+ 0.01882636 0.04283711 0.04859414 0.00272334 0.05536376]
+Reward: 0.8594097529140304
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.78849196434021e+3
+Observation: [ 0.96533203  0.69189453  0.24462891  0.08496094  0.47119141  0.87597656
+  0.89648438  0.44335938  0.09814453  0.24365234  0.65478516 21.        ]
+Error: [0.03466797 0.01581298 0.07205927 0.06470742 0.04234883 0.0446502
+ 0.02414239 0.01451679 0.07789102 0.07108271 0.05292235]
+Reward: 0.7731246424448603
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.65970867872238e+3
+Observation: [ 0.89746094  0.61962891  0.26757812  0.15283203  0.50439453  0.83056641
+  0.79541016  0.43408203  0.19628906  0.31591797  0.64013672 32.        ]
+Error: [0.10253906 0.0880786  0.09500849 0.13257852 0.07555195 0.09006036
+ 0.12521661 0.00523945 0.17603555 0.14334834 0.06757079]
+Reward: 0.33454350102929425
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 5: score 2.0, avg_score 1.4
+
+====================================================================================================
+EPISODE 6
+========== STEP ==========
+Action: 50.80141872167587e+3
+Observation: [ 0.99267578  0.75292969  0.23681641  0.04736328  0.47802734  0.92578125
+  0.92724609  0.41699219  0.05859375  0.22705078  0.70507812 10.        ]
+Error: [0.00732422 0.04522218 0.06424677 0.02710977 0.04918476 0.00515448
+ 0.00661933 0.01185039 0.03834024 0.05448115 0.00262938]
+Reward: 0.8939015862835031
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.96728516  0.63134766  0.21191406  0.10644531  0.54345703  0.90136719
+  0.83349609  0.3828125   0.09277344  0.328125    0.75488281 21.        ]
+Error: [0.03271484 0.07635985 0.03934443 0.0861918  0.11461445 0.01925958
+ 0.08713067 0.04603008 0.07251992 0.15555537 0.04717531]
+Reward: 0.5242652920031767
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 6: score 1.4, avg_score 1.4
+
+====================================================================================================
+EPISODE 7
+========== STEP ==========
+Action: 50.31090974807739e+3
+Observation: [ 0.99121094  0.76513672  0.24951172  0.05664062  0.45214844  0.89208984
+  0.94433594  0.47509766  0.06152344  0.18408203  0.64257812 10.        ]
+Error: [0.00878906 0.05742921 0.07694209 0.03638711 0.02330586 0.02853692
+ 0.02370917 0.04625508 0.04126992 0.0115124  0.06512938]
+Reward: 0.8321205250179704
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.81842094659805e+3
+Observation: [ 0.96826172  0.69091797  0.22900391  0.08740234  0.4609375   0.88427734
+  0.90185547  0.45214844  0.11767578  0.24707031  0.66015625 21.        ]
+Error: [0.03173828 0.01678954 0.05643427 0.06714883 0.03209492 0.03634942
+ 0.0187713  0.02330586 0.09742227 0.07450068 0.04755126]
+Reward: 0.7683385508017873
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 51.02771893143654e+3
+Observation: [ 0.90576172  0.63623047  0.24755859  0.1640625   0.52978516  0.82617188
+  0.77587891  0.42285156  0.18359375  0.32861328  0.66455078 32.        ]
+Error: [0.09423828 0.07147704 0.07498896 0.14380899 0.10094258 0.09445489
+ 0.14474786 0.00599102 0.16334024 0.15604365 0.04315673]
+Reward: 0.31869998615358935
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 7: score 1.9, avg_score 1.5
+
+====================================================================================================
+EPISODE 8
+========== STEP ==========
+Action: 50.35019665956497e+3
+Observation: [ 0.98974609  0.74951172  0.23193359  0.04882812  0.45019531  0.90869141
+  0.9453125   0.46240234  0.05371094  0.18212891  0.66162109 10.        ]
+Error: [0.01025391 0.04180421 0.05936396 0.02857461 0.02135273 0.01193536
+ 0.02468573 0.03355976 0.03345742 0.00955927 0.04608641]
+Reward: 0.9020080804290901
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 49.86177012324333e+3
+Observation: [ 0.96679688  0.70996094  0.2578125   0.06445312  0.42822266  0.84179688
+  0.90283203  0.50976562  0.125       0.19042969  0.578125   21.        ]
+Error: [0.03320312 0.00225343 0.08524287 0.04419961 0.00061992 0.07882989
+ 0.01779474 0.08092304 0.10474649 0.01786005 0.12958251]
+Reward: 0.6419895414009037
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 8: score 1.5, avg_score 1.5
+
+====================================================================================================
+EPISODE 9
+========== STEP ==========
+Action: 50.61965435743332e+3
+Observation: [ 0.98779297  0.75390625  0.23681641  0.05664062  0.46826172  0.92089844
+  0.9296875   0.45068359  0.0546875   0.22314453  0.69433594 10.        ]
+Error: [0.01220703 0.04619874 0.06424677 0.03638711 0.03941914 0.00027167
+ 0.00906073 0.02184101 0.03443399 0.0505749  0.01337157]
+Reward: 0.8946331928506553
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.96380412578583e+3
+Observation: [ 0.95849609  0.63330078  0.20996094  0.10205078  0.52001953  0.89892578
+  0.84619141  0.36816406  0.08984375  0.29882812  0.72070312 21.        ]
+Error: [0.04150391 0.07440673 0.0373913  0.08179727 0.09117695 0.02170099
+ 0.07443536 0.06067852 0.06959024 0.12625849 0.01299562]
+Reward: 0.6173676496277292
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 9: score 1.5, avg_score 1.5
+
+====================================================================================================
+EPISODE 10
+========== STEP ==========
+Action: 50.76110363006592e+3
+Observation: [ 0.98974609  0.74365234  0.23535156  0.06201172  0.47119141  0.92822266
+  0.90869141  0.42089844  0.05615234  0.22802734  0.7265625  10.        ]
+Error: [0.01025391 0.03594484 0.06278193 0.04175821 0.04234883 0.00759589
+ 0.01193536 0.00794414 0.03589883 0.05545771 0.01885499]
+Reward: 0.8922242928083788
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.05373805761337e+3
+Observation: [ 0.96972656  0.63134766  0.20898438  0.09960938  0.50244141  0.89160156
+  0.88330078  0.46191406  0.09472656  0.24902344  0.67919922 21.        ]
+Error: [0.03027344 0.07635985 0.03641474 0.07935586 0.07359883 0.0290252
+ 0.03732599 0.03307148 0.07447305 0.0764538  0.02850829]
+Reward: 0.731274872320412
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 49.863893538713455e+3
+Observation: [ 0.89550781  0.65625     0.29638672  0.15966797  0.46289062  0.81982422
+  0.82275391  0.50195312  0.22460938  0.28466797  0.59375    32.        ]
+Error: [0.10449219 0.05145751 0.12381709 0.13941446 0.03404804 0.10080255
+ 0.09787286 0.07311054 0.20435586 0.11209834 0.11395751]
+Reward: 0.2926400821027382
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 10: score 1.9, avg_score 1.5
+
+====================================================================================================
+EPISODE 11
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.98632812  0.72216797  0.24121094  0.06298828  0.48974609  0.93212891
+  0.90576172  0.38134766  0.05419922  0.26074219  0.74316406 10.        ]
+Error: [0.01367188 0.01446046 0.0686413  0.04273477 0.06090351 0.01150214
+ 0.01486505 0.04749492 0.03394571 0.08817255 0.03545656]
+Reward: 0.8180232857867539
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.47797039151192e+3
+Observation: [ 0.95898438  0.59277344  0.18261719  0.13916016  0.56689453  0.91943359
+  0.83398438  0.37792969  0.10498047  0.31445312  0.73632812 21.        ]
+Error: [0.04101562 0.11493407 0.01004755 0.11890664 0.13805195 0.00119317
+ 0.08664239 0.05091289 0.08472696 0.14188349 0.02862062]
+Reward: 0.45481227102926974
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 11: score 1.3, avg_score 1.5
+
+====================================================================================================
+EPISODE 12
+========== STEP ==========
+Action: 50.16641691327095e+3
+Observation: [ 0.98779297  0.765625    0.23730469  0.0546875   0.46923828  0.89550781
+  0.93847656  0.48779297  0.06152344  0.19042969  0.64257812 10.        ]
+Error: [0.01220703 0.05791749 0.06473505 0.03443399 0.0403957  0.02511895
+ 0.0178498  0.05895039 0.04126992 0.01786005 0.06512938]
+Reward: 0.8300268967825583
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 49.78722333908081e+3
+Observation: [ 0.96386719  0.69970703  0.28076172  0.09521484  0.4375      0.85351562
+  0.91699219  0.52539062  0.14208984  0.18945312  0.57910156 21.        ]
+Error: [0.03613281 0.00800048 0.10819209 0.07496133 0.00865742 0.06711114
+ 0.00363458 0.09654804 0.12183633 0.01688349 0.12860594]
+Reward: 0.5613608784987695
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 12: score 1.4, avg_score 1.5
+
+====================================================================================================
+EPISODE 13
+========== STEP ==========
+Action: 49.69223216176033e+3
+Observation: [ 0.98828125  0.75439453  0.24755859  0.05126953  0.46191406  0.89257812
+  0.94580078  0.49414062  0.06982422  0.15283203  0.62548828 10.        ]
+Error: [0.01171875 0.04668702 0.07498896 0.03101602 0.03307148 0.02804864
+ 0.02517401 0.06529804 0.04957071 0.0197376  0.08221923]
+Reward: 0.7970040642053545
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.55231228470802e+3
+Observation: [ 0.96582031  0.71484375  0.26464844  0.08251953  0.42724609  0.84228516
+  0.9140625   0.49902344  0.12109375  0.22070312  0.61767578 21.        ]
+Error: [0.03417969 0.00713624 0.0920788  0.06226602 0.00159649 0.07834161
+ 0.00656427 0.07018086 0.10084024 0.04813349 0.09003173]
+Reward: 0.6691562839072809
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 13: score 1.5, avg_score 1.5
+
+====================================================================================================
+EPISODE 14
+========== STEP ==========
+Action: 50.140224397182465e+3
+Observation: [ 0.98583984  0.74902344  0.24267578  0.05566406  0.43115234  0.90869141
+  0.94140625  0.47802734  0.06005859  0.17480469  0.66064453 10.        ]
+Error: [0.01416016 0.04131593 0.07010615 0.03541055 0.00230976 0.01193536
+ 0.02077948 0.04918476 0.03980508 0.00223505 0.04706298]
+Reward: 0.8765533355942238
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.353311002254486e+3
+Observation: [ 0.97558594  0.69189453  0.27880859  0.08496094  0.42919922  0.84375
+  0.90429688  0.48876953  0.12597656  0.20751953  0.61621094 21.        ]
+Error: [0.02441406 0.01581298 0.10623896 0.06470742 0.00035664 0.07687677
+ 0.01632989 0.05992695 0.10572305 0.0349499  0.09149657]
+Reward: 0.6636231622614862
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 14: score 1.5, avg_score 1.5
+
+====================================================================================================
+EPISODE 15
+========== STEP ==========
+Action: 50.106629729270935e+3
+Observation: [ 0.9921875   0.74804688  0.24023438  0.05517578  0.45556641  0.90527344
+  0.93798828  0.48876953  0.07128906  0.17138672  0.62402344 10.        ]
+Error: [0.0078125  0.04033937 0.06766474 0.03492227 0.02672383 0.01535333
+ 0.01736151 0.05992695 0.05103555 0.00118291 0.08368407]
+Reward: 0.8212534582890948
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.97363281  0.68701172  0.23535156  0.07519531  0.4921875   0.88525391
+  0.88037109  0.44824219  0.10058594  0.27636719  0.70507812 21.        ]
+Error: [0.02636719 0.02069579 0.06278193 0.0549418  0.06334492 0.03537286
+ 0.04025567 0.01939961 0.08033242 0.10379755 0.00262938]
+Reward: 0.7435054312447327
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you f====================================================================================================
+EPISODE 16
+========== STEP ==========
+Action: 50.457097589969635e+3
+Observation: [ 0.98828125  0.77734375  0.22607422  0.05371094  0.49609375  0.90869141
+  0.93603516  0.44335938  0.05908203  0.20117188  0.67431641 10.        ]
+Error: [0.01171875 0.06963624 0.05350459 0.03345742 0.06725117 0.01193536
+ 0.01540839 0.01451679 0.03882852 0.02860224 0.0333911 ]
+Reward: 0.8659261051963177
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.43071508407593e+3
+Observation: [ 0.96533203  0.68359375  0.22412109  0.09863281  0.48632812  0.8828125
+  0.8984375   0.46435547  0.10791016  0.23828125  0.66064453 21.        ]
+Error: [0.03466797 0.02411376 0.05155146 0.0783793  0.05748554 0.03781427
+ 0.02218927 0.03551289 0.08765664 0.06571162 0.04706298]
+Reward: 0.7555845721040911
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.537530332803726e+3
+Observation: [ 0.90576172  0.63525391  0.27880859  0.15527344  0.47705078  0.81054688
+  0.8203125   0.43945312  0.18945312  0.31835938  0.62353516 32.        ]
+Error: [0.09423828 0.0724536  0.10623896 0.13501992 0.0482082  0.11007989
+ 0.10031427 0.01061054 0.16919961 0.14578974 0.08417235]
+Reward: 0.35127881158754987
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 16: score 2.0, avg_score 1.5
+
+====================================================================================================
+EPISODE 17
+========== STEP ==========
+Action: 50.61639845371246e+3
+Observation: [ 0.99121094  0.74414062  0.25439453  0.07177734  0.47753906  0.91796875
+  0.93066406  0.43505859  0.0625      0.22265625  0.69042969 10.        ]
+Error: [0.00878906 0.03643312 0.0818249  0.05152383 0.04869648 0.00265802
+ 0.0100373  0.00621601 0.04224649 0.05008662 0.01727782]
+Reward: 0.8609684515644136
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.79737305641174e+3
+Observation: [ 0.96728516  0.65039062  0.20654297  0.09033203  0.49316406  0.88037109
+  0.87402344  0.41699219  0.10546875  0.27880859  0.70458984 21.        ]
+Error: [0.03271484 0.05731688 0.03397334 0.07007852 0.06432148 0.04025567
+ 0.04660333 0.01185039 0.08521524 0.10623896 0.00311766]
+Reward: 0.7212971756308029
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 17: score 1.6, avg_score 1.5
+
+====================================================================================================
+EPISODE 18
+========== STEP ==========
+Action: 50.386495888233185e+3
+Observation: [ 0.9921875   0.76513672  0.26806641  0.05615234  0.47607422  0.90625
+  0.94238281  0.45166016  0.06445312  0.18701172  0.67871094 10.        ]
+Error: [0.0078125  0.05742921 0.09549677 0.03589883 0.04723164 0.01437677
+ 0.02175605 0.02281758 0.04419961 0.01444209 0.02899657]
+Reward: 0.8464732696572168
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.989724695682526e+3
+Observation: [ 0.96728516  0.67333984  0.24511719  0.10009766  0.49951172  0.89404297
+  0.87060547  0.42285156  0.10009766  0.26904297  0.70410156 21.        ]
+Error: [0.03271484 0.03436766 0.07254755 0.07984414 0.07066914 0.0265838
+ 0.0500213  0.00599102 0.07984414 0.09647334 0.00360594]
+Reward: 0.7101374493125445
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.77219381928444e+3
+Observation: [ 0.89794922  0.61621094  0.23925781  0.17724609  0.53662109  0.84228516
+  0.80957031  0.421875    0.18457031  0.33105469  0.68261719 32.        ]
+Error: [0.10205078 0.09149657 0.06668818 0.15699258 0.10777851 0.07834161
+ 0.11105645 0.00696758 0.1643168  0.15848505 0.02509032]
+Reward: 0.3166673207045162
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 18: score 1.9, avg_score 1.6
+
+====================================================================================================
+EPISODE 19
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.99072266  0.74804688  0.22998047  0.05859375  0.49804688  0.93066406
+  0.91699219  0.40087891  0.04736328  0.26416016  0.74853516 10.        ]
+Error: [0.00927734 0.04033937 0.05741084 0.03834024 0.06920429 0.0100373
+ 0.00363458 0.02796367 0.02710977 0.09159052 0.04082765]
+Reward: 0.8370350350482905
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.454217940568924e+3
+Observation: [ 0.96240234  0.59570312  0.17871094  0.10644531  0.53320312  0.91503906
+  0.86230469  0.37353516  0.09472656  0.28027344  0.70751953 21.        ]
+Error: [0.03759766 0.11200438 0.0061413  0.0861918  0.10436054 0.0055877
+ 0.05832208 0.05530742 0.07447305 0.1077038  0.00018798]
+Reward: 0.6083908040675504
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 19: score 1.4, avg_score 1.5
+
+====================================================================================================
+EPISODE 20
+========== STEP ==========
+Action: 50.623685121536255e+3
+Observation: [ 0.99169922  0.76367188  0.22900391  0.05078125  0.45898438  0.91845703
+  0.9296875   0.44580078  0.04492188  0.20800781  0.69580078 10.        ]
+Error: [0.00830078 0.05596437 0.05643427 0.03052774 0.03014179 0.00216974
+ 0.00906073 0.0169582  0.02466836 0.03543818 0.01190673]
+Reward: 0.9195746898072878
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 49.87874627113342e+3
+Observation: [ 0.96435547  0.6640625   0.22949219  0.08007812  0.45996094  0.86572266
+  0.90820312  0.49072266  0.11376953  0.18847656  0.61914062 21.        ]
+Error: [0.03564453 0.04364501 0.05692255 0.05982461 0.03111836 0.05490411
+ 0.01242364 0.06188008 0.09351602 0.01590693 0.08856688]
+Reward: 0.7458770091666366
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 49.819961190223694e+3
+Observation: [ 0.90332031  0.68603516  0.3359375   0.12597656  0.40234375  0.77392578
+  0.85253906  0.53027344  0.20605469  0.25634766  0.54101562 32.        ]
+Error: [0.09667969 0.02167235 0.16336787 0.10572305 0.02649883 0.14670099
+ 0.0680877  0.10143086 0.18580117 0.08377802 0.16669188]
+Reward: 0.2674860465770488
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 20: score 1.9, avg_score 1.6
+
+====================================================================================================
+EPISODE 21
+========== STEP ==========
+Action: 51.097553223371506e+3
+Observation: [ 0.98925781  0.75341797  0.22949219  0.05615234  0.49609375  0.92529297
+  0.91650391  0.40625     0.04492188  0.23339844  0.72705078 10.        ]
+Error: [0.01074219 0.04571046 0.05692255 0.03589883 0.06725117 0.0046662
+ 0.00412286 0.02259258 0.02466836 0.0608288  0.01934327]
+Reward: 0.8765965664042086
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.95605469  0.60253906  0.17724609  0.12744141  0.57763672  0.92626953
+  0.82617188  0.34179688  0.11865234  0.34277344  0.77832031 21.        ]
+Error: [0.04394531 0.10516844 0.00467646 0.10718789 0.14879414 0.00564276
+ 0.09445489 0.08704571 0.09839883 0.1702038  0.07061281]
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 21: score 1.3, avg_score 1.5
+
+====================================================================================================
+EPISODE 22
+========== STEP ==========
+Action: 50.38496106863022e+3
+Observation: [ 0.98681641  0.76318359  0.21875     0.05517578  0.46240234  0.90917969
+  0.93603516  0.44384766  0.06640625  0.18603516  0.66552734 10.        ]
+Error: [0.01318359 0.05547609 0.04618037 0.03492227 0.03355976 0.01144708
+ 0.01540839 0.01500508 0.04615274 0.01346552 0.04218016]
+Reward: 0.8971399025235609
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.94282329082489e+3
+Observation: [ 0.96972656  0.66796875  0.22949219  0.10107422  0.50146484  0.88671875
+  0.88720703  0.41845703  0.09912109  0.25048828  0.68701172 21.        ]
+Error: [0.03027344 0.03973876 0.05692255 0.08082071 0.07262226 0.03390802
+ 0.03341974 0.01038555 0.07886758 0.07791865 0.02069579]
+Reward: 0.7469557311147028
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 51.01381987333298e+3
+Observation: [ 0.89501953  0.59863281  0.23095703  0.18066406  0.54736328  0.84472656
+  0.78710938  0.39355469  0.19384766  0.34716797  0.68896484 32.        ]
+Error: [0.10498047 0.10907469 0.0583874  0.16041055 0.1185207  0.0759002
+ 0.13351739 0.03528789 0.17359414 0.17459834 0.01874266]
+Reward: 0.26333902826648387
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 22: score 1.9, avg_score 1.6
+
+====================================================================================================
+EPISODE 23
+========== STEP ==========
+Action: 50.132330507040024e+3
+Observation: [ 0.99316406  0.76464844  0.23144531  0.05566406  0.44824219  0.88720703
+  0.93701172  0.47460938  0.06445312  0.17285156  0.66357422 10.        ]
+Error: [0.00683594 0.05694093 0.05887568 0.03541055 0.01939961 0.03341974
+ 0.01638495 0.04576679 0.04419961 0.00028193 0.04413329]
+Reward: 0.8696822478069176
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.763677805662155e+3
+Observation: [ 0.96386719  0.68945312  0.26123047  0.07763672  0.46289062  0.86035156
+  0.89794922  0.46923828  0.11328125  0.23632812  0.63867188 21.        ]
+Error: [0.03613281 0.01825438 0.08866084 0.05738321 0.03404804 0.0602752
+ 0.02267755 0.0403957  0.09302774 0.06375849 0.06903563]
+Reward: 0.7219712988175886
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 51.06330290436745e+3
+Observation: [ 0.90527344  0.65576172  0.28466797  0.16894531  0.51757812  0.82519531
+  0.79980469  0.44042969  0.18945312  0.34033203  0.66699219 32.        ]
+Error: [0.09472656 0.05194579 0.11209834 0.1486918  0.08873554 0.09543145
+ 0.12082208 0.01158711 0.16919961 0.1677624  0.04071532]
+Reward: 0.2974410631339874
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+... saving models ...
+END EPISODE 23: score 1.9, avg_score 1.6
+
+====================================================================================================
+EPISODE 24
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.99072266  0.75292969  0.22705078  0.05810547  0.50634766  0.93066406
+  0.9140625   0.39550781  0.05810547  0.24755859  0.71826172 10.        ]
+Error: [0.00927734 0.04522218 0.05448115 0.03785196 0.07750508 0.0100373
+ 0.00656427 0.03333477 0.03785196 0.07498896 0.01055421]
+Reward: 0.8430033544754546
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.28574541211128e+3
+Observation: [ 0.95947266  0.61523438  0.19335938  0.11572266  0.53955078  0.91113281
+  0.87548828  0.39990234  0.10498047  0.28173828  0.69580078 21.        ]
+Error: [0.04052734 0.09247313 0.02078974 0.09546914 0.1107082  0.00949395
+ 0.04513849 0.02894024 0.08472696 0.10916865 0.01190673]
+Reward: 0.613395477768546
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 24: score 1.5, avg_score 1.6
+
+====================================================================================================
+EPISODE 25
+========== STEP ==========
+Action: 50.93774199485779e+3
+Observation: [ 0.98925781  0.75976562  0.22167969  0.05810547  0.49072266  0.92236328
+  0.92871094  0.43017578  0.05175781  0.2421875   0.71923828 10.        ]
+Error: [0.01074219 0.05205812 0.04911005 0.03785196 0.06188008 0.00173651
+ 0.00808417 0.0013332  0.0315043  0.06961787 0.01153077]
+Reward: 0.8819797215618478
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.70480331778526e+3
+Observation: [ 0.95849609  0.62255859  0.20068359  0.09423828  0.52441406  0.90673828
+  0.86035156  0.39648438  0.10498047  0.27539062  0.70117188 21.        ]
+Error: [0.04150391 0.08514891 0.02811396 0.07398477 0.09557148 0.01388849
+ 0.0602752  0.03235821 0.08472696 0.10282099 0.00653563]
+Reward: 0.6597790085198613
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 25: score 1.5, avg_score 1.6
+
+====================================================================================================
+EPISODE 26
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.98974609  0.75537109  0.22070312  0.06689453  0.50585938  0.92871094
+  0.91357422  0.40527344  0.05566406  0.25244141  0.75146484 10.        ]
+Error: [0.01025391 0.04766359 0.04813349 0.04664102 0.07701679 0.00808417
+ 0.00705255 0.02356914 0.03541055 0.07987177 0.04375734]
+Reward: 0.8379532516899769
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.96386719  0.60986328  0.18115234  0.14111328  0.59277344  0.91162109
+  0.80957031  0.34716797  0.109375    0.34960938  0.77734375 21.        ]
+Error: [0.03613281 0.09784423 0.00858271 0.12085977 0.16393086 0.00900567
+ 0.11105645 0.08167461 0.08912149 0.17703974 0.06963624]
+Reward: 0.3471824355526448
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 26: score 1.2, avg_score 1.6
+
+====================================================================================================
+EPISODE 27
+========== STEP ==========
+Action: 50.89752376079559e+3
+Observation: [ 0.98925781  0.73779297  0.21972656  0.06689453  0.48828125  0.92138672
+  0.921875    0.41503906  0.05078125  0.20849609  0.71386719 10.        ]
+Error: [0.01074219 0.03008546 0.04715693 0.04664102 0.05943867 0.00075995
+ 0.00124823 0.01380352 0.03052774 0.03592646 0.00615968]
+Reward: 0.9093092474130969
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 49.498677253723145e+3
+Observation: [ 0.96386719  0.66992188  0.23388672  0.09472656  0.4609375   0.86572266
+  0.90332031  0.48046875  0.12548828  0.19677734  0.58886719 21.        ]
+Error: [0.03613281 0.03778563 0.06131709 0.07447305 0.03209492 0.05490411
+ 0.01730645 0.05162617 0.10523477 0.02420771 0.11884032]
+Reward: 0.6854594705810315
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 27: score 1.6, avg_score 1.6
+
+====================================================================================================
+EPISODE 28
+========== STEP ==========
+Action: 50.65466836094856e+3
+Observation: [ 0.98974609  0.77001953  0.23876953  0.0625      0.47363281  0.92285156
+  0.92871094  0.43847656  0.05908203  0.19677734  0.6796875  10.        ]
+Error: [0.01025391 0.06231202 0.0661999  0.04224649 0.04479023 0.0022248
+ 0.00808417 0.00963398 0.03882852 0.02420771 0.02802001]
+Reward: 0.8825637412733879
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.96533203  0.64355469  0.21533203  0.10693359  0.52636719  0.89990234
+  0.85644531  0.39111328  0.10009766  0.31005859  0.72509766 21.        ]
+Error: [0.03466797 0.06415282 0.0427624  0.08668008 0.09752461 0.02072442
+ 0.06418145 0.0377293  0.07984414 0.13748896 0.01739015]
+Reward: 0.6027613853112916
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 28: score 1.5, avg_score 1.6
+
+====================================================================================================
+EPISODE 29
+========== STEP ==========
+Action: 49.99256506562233e+3
+Observation: [ 0.98974609  0.77197266  0.22070312  0.05761719  0.45117188  0.88525391
+  0.9375      0.50439453  0.06005859  0.16992188  0.63964844 10.        ]
+Error: [0.01025391 0.06426515 0.04813349 0.03736367 0.02232929 0.03537286
+ 0.01687323 0.07555195 0.03980508 0.00264776 0.06805907]
+Reward: 0.8225055660900241
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.676628947257996e+3
+Observation: [ 0.96826172  0.71337891  0.27880859  0.07910156  0.45166016  0.84716797
+  0.90917969  0.48632812  0.10205078  0.22753906  0.63769531 21.        ]
+Error: [0.03173828 0.0056714  0.10623896 0.05884805 0.02281758 0.0734588
+ 0.01144708 0.05748554 0.08179727 0.05496943 0.07001219]
+Reward: 0.7001735777381257
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 29: score 1.5, avg_score 1.6
+
+====================================================================================================
+EPISODE 30
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.98925781  0.75878906  0.23144531  0.05810547  0.49707031  0.92041016
+  0.91113281  0.39892578  0.0546875   0.28466797  0.74072266 10.        ]
+Error: [0.01074219 0.05108156 0.05887568 0.03785196 0.06822773 0.00021661
+ 0.00949395 0.0299168  0.03443399 0.11209834 0.03301515]
+Reward: 0.7961973160781728
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 30: score 0.8, avg_score 1.5
+
+====================================================================================================
+EPISODE 31
+========== STEP ==========
+Action: 50.44075846672058e+3
+Observation: [ 0.99072266  0.76953125  0.24951172  0.06201172  0.50488281  0.91601562
+  0.92871094  0.45654297  0.06005859  0.19628906  0.67919922 10.        ]
+Error: [0.00927734 0.06182374 0.07694209 0.04175821 0.07604023 0.00461114
+ 0.00808417 0.02770039 0.03980508 0.02371943 0.02850829]
+Reward: 0.8431593999667729
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.591569393873215e+3
+Observation: [ 0.96777344  0.67431641  0.24023438  0.08886719  0.4765625   0.87353516
+  0.89257812  0.43945312  0.11816406  0.25390625  0.67626953 21.        ]
+Error: [0.03222656 0.0333911  0.06766474 0.06861367 0.04771992 0.04709161
+ 0.02804864 0.01061054 0.09791055 0.08133662 0.03143798]
+Reward: 0.7394028069467364
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.89941406  0.62402344  0.25732422  0.16259766  0.52539062  0.83886719
+  0.78222656  0.40966797  0.18115234  0.35595703  0.68896484 32.        ]
+Error: [0.10058594 0.08368407 0.08475459 0.14234414 0.09654804 0.08175958
+ 0.1384002  0.01917461 0.16089883 0.1833874  0.01874266]
+Reward: 0.2932349769353123
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 31: score 1.9, avg_score 1.5
+
+====================================================================================================
+EPISODE 32
+========== STEP ==========
+Action: 51.217179745435715e+3
+Observation: [ 0.98779297  0.76123047  0.20996094  0.06103516  0.4921875   0.92919922
+  0.8984375   0.37255859  0.04882812  0.26464844  0.75146484 10.        ]
+Error: [0.01220703 0.05352296 0.0373913  0.04078164 0.06334492 0.00857245
+ 0.02218927 0.05628399 0.02857461 0.0920788  0.04375734]
+Reward: 0.8119151258782413
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.960723310709e+3
+Observation: [ 0.95654297  0.61035156  0.16943359  0.11767578  0.56591797  0.92333984
+  0.82714844  0.35449219  0.10546875  0.33398438  0.7578125  21.        ]
+Error: [0.04345703 0.09735594 0.00313604 0.09742227 0.13707539 0.00271308
+ 0.09347833 0.07435039 0.08521524 0.16141474 0.05010499]
+Reward: 0.44039115864131806
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 32: score 1.3, avg_score 1.5
+
+====================================================================================================
+EPISODE 33
+========== STEP ==========
+Action: 50.51202327013016e+3
+Observation: [ 0.99072266  0.76611328  0.2421875   0.04833984  0.46582031  0.90087891
+  0.92236328  0.44384766  0.05810547  0.20361328  0.67431641 10.        ]
+Error: [0.00927734 0.05840577 0.06961787 0.02808633 0.03697773 0.01974786
+ 0.00173651 0.01500508 0.03785196 0.03104365 0.0333911 ]
+Reward: 0.8796463490192616
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.94544589519501e+3
+Observation: [ 0.96826172  0.6640625   0.2265625   0.09716797  0.50244141  0.89648438
+  0.86376953  0.41357422  0.09277344  0.28076172  0.70654297 21.        ]
+Error: [0.03173828 0.04364501 0.05399287 0.07691446 0.07359883 0.02414239
+ 0.05685724 0.01526836 0.07251992 0.10819209 0.00116454]
+Reward: 0.7093077176067355
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 33: score 1.6, avg_score 1.5
+
+====================================================================================================
+EPISODE 34
+========== STEP ==========
+Action: 49.86186325550079e+3
+Observation: [ 0.98779297  0.76367188  0.25146484  0.04736328  0.43457031  0.89599609
+  0.94433594  0.47558594  0.06298828  0.16308594  0.62451172 10.        ]
+Error: [0.01220703 0.05596437 0.07889521 0.02710977 0.00572773 0.02463067
+ 0.02370917 0.04674336 0.04273477 0.0094837  0.08319579]
+Reward: 0.8162648129288431
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.186194479465485e+3
+Observation: [ 0.96386719  0.72119141  0.26464844  0.06835938  0.41162109  0.85449219
+  0.91503906  0.51708984  0.13134766  0.18212891  0.60302734 21.        ]
+Error: [0.03613281 0.0134839  0.0920788  0.04810586 0.01722149 0.06613458
+ 0.0055877  0.08824726 0.11109414 0.00955927 0.10468016]
+Reward: 0.6514228469986102
+DONE!
+
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+END EPISODE 34: score 1.5, avg_score 1.5
+
+====================================================================================================
+EPISODE 35
+========== STEP ==========
+Action: 50.42364075779915e+3
+Observation: [ 0.98974609  0.76464844  0.23779297  0.05175781  0.47753906  0.90917969
+  0.92919922  0.45068359  0.04931641  0.19726562  0.68359375 10.        ]
+Error: [0.01025391 0.05694093 0.06522334 0.0315043  0.04869648 0.01144708
+ 0.00857245 0.02184101 0.02906289 0.02469599 0.02411376]
+Reward: 0.8925260465812815
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.894126296043396e+3
+Observation: [ 0.96923828  0.6640625   0.22265625  0.08642578  0.49023438  0.88867188
+  0.87695312  0.42431641  0.09765625  0.26171875  0.69042969 21.        ]
+Error: [0.03076172 0.04364501 0.05008662 0.06617227 0.06139179 0.03195489
+ 0.04367364 0.00452617 0.07740274 0.08914912 0.01727782]
+Reward: 0.7627160455535994
+WARNING:tensorflow:Gradients do not exist for variables ['actor_critic_network/dense_3/kernel:0', 'actor_critic_network/dense_3/bias:0'] when minimizing the loss. If you're using `model.compile()`, did you forget to provide a `loss` argument?
+========== STEP ==========
+Action: 50.0975176692009e+3

@@ -8,7 +8,7 @@ if __name__ == '__main__':
     env = QFA()
     agent = Agent()
 
-    EPISODES = 20
+    EPISODES = 50
 
     file_name = 'qfa.png'
     figure_file = 'plots/' + file_name
@@ -21,15 +21,19 @@ if __name__ == '__main__':
         agent.load_models()
     
     for i in range(EPISODES):
+        print(f"\n{'='*100}")
+        print(f"EPISODE {i}")
         observation = env.reset()
         done = False
         score = 0
         while not done:
+            print(f"{'='*10} STEP {'='*10}")
             action = agent.choose_action(observation)
+            print(f"Action: {action*1000}e+3")
             observation_, reward, done = env.step(action)
-            print(f"Action: {action}")
             print(f"Observation: {observation_}")
             print(f"Error: {np.abs(observation_[:-1]-env._expected)}")
+            print(f"Reward: {reward}")
             if done:
                 print("DONE!\n")
             score += reward
@@ -44,8 +48,7 @@ if __name__ == '__main__':
             if not load_checkpoint:
                 agent.save_models()
         
-        print(f"Episode {i}, score {score:.1f}, avg_score {avg_score:.1f}")
-        print(f"{'='*100}\n")
+        print(f"END EPISODE {i}: score {score:.1f}, avg_score {avg_score:.1f}")
     
     if not load_checkpoint:
         x = [i+1 for i in range(EPISODES)]

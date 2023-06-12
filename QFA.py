@@ -14,10 +14,10 @@ class QFA:
         self.batch_size = batch_size            # Size of repetitions batches
 
         # Get backend
-        # IBMQ.enable_account("43c3552338739471ef9b36f2ad6d17ec2cdfd4885275bead3e1d83d54509666b3f9eff7a8129fa720346d955780b4ebfc3d4f58e16c9ed24f834fad47ac43e84")
-        # provider = IBMQ.get_provider("ibm-q")
-        # self._backend = provider.get_backend(backend)
-        self._backend = PulseSimulator().from_backend(FakeBelem())
+        IBMQ.enable_account("43c3552338739471ef9b36f2ad6d17ec2cdfd4885275bead3e1d83d54509666b3f9eff7a8129fa720346d955780b4ebfc3d4f58e16c9ed24f834fad47ac43e84")
+        provider = IBMQ.get_provider("ibm-q")
+        self._backend = provider.get_backend(backend)
+        # self._backend = PulseSimulator().from_backend(FakeBelem())
 
         # Expected acceptance probabilities
         self._expected = np.array([np.cos(2*np.pi*w/self.p)**2 for w in range(self.p)])
@@ -45,7 +45,7 @@ class QFA:
             gate = Gate(gate_name, 1, params=[])
 
             # Apply pulse batch_size times
-            for _ in range(self.batch_size*self.p-1):
+            for _ in range(self.batch_size*self.p-int(i==0)):
                 base_circ.append(gate, [self.qubit])
             
             base_circ.add_calibration(gate_name, [self.qubit], pulse_prog)
@@ -75,7 +75,7 @@ class QFA:
         
         # Reward is e^(-100*(1-similarity))
         reward = 1 - spatial.distance.cosine(probabilities, self._expected)/2
-        reward = np.exp(-100*(1-reward))
+        reward = np.exp(-150*(1-reward))
 
         # Done if one of the results have an absolute error above 5%
         done = False
