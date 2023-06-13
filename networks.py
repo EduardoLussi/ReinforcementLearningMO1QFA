@@ -5,7 +5,7 @@ from tensorflow import keras
 from keras.layers import Dense
 
 class ActorCriticNetwork(keras.Model):
-    def __init__(self, fc1_dims=1024, fc2_dims=512,
+    def __init__(self, fc1_dims=512, fc2_dims=256,
                  name='actor_critic', chkpt='tmp/actor_critic'):
         super(ActorCriticNetwork, self).__init__()
         

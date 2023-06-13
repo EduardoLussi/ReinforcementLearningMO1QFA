@@ -8,7 +8,7 @@ if __name__ == '__main__':
     env = QFA()
     agent = Agent()
 
-    EPISODES = 50
+    EPISODES = 30
 
     file_name = 'qfa.png'
     figure_file = 'plots/' + file_name

@@ -6,7 +6,7 @@ import numpy as np
 from scipy import spatial
 
 class QFA:
-    def __init__(self, p=11, batch_size=1, pulse_duration=64, qubit=0, backend='ibmq_lima'):
+    def __init__(self, p=11, batch_size=5, pulse_duration=64, qubit=0, backend='ibmq_lima'):
         self.p = p                              # MOD^p
         self.pulse_progs = []                   # Pulse programs for the episode
         self.pulse_duration = pulse_duration    # Pulse duration
@@ -20,12 +20,12 @@ class QFA:
         # self._backend = PulseSimulator().from_backend(FakeBelem())
 
         # Expected acceptance probabilities
-        self._expected = np.array([np.cos(2*np.pi*w/self.p)**2 for w in range(self.p)])
+        self._expected = np.cos(2*np.pi*0/self.p)**2
     
     # Reset environment
     def reset(self):
         self.pulse_progs.clear()
-        return np.append(self._expected, 0)
+        return np.array([self._expected, 0])
 
     def step(self, action):
         # Build new pulse program
@@ -45,44 +45,33 @@ class QFA:
             gate = Gate(gate_name, 1, params=[])
 
             # Apply pulse batch_size times
-            for _ in range(self.batch_size*self.p-int(i==0)):
+            for _ in range(self.batch_size*self.p):
                 base_circ.append(gate, [self.qubit])
             
             base_circ.add_calibration(gate_name, [self.qubit], pulse_prog)
-
-        # Get measurements for |w| mod p = p..1
-        circs = [base_circ]
-        for _ in range(self.p-1):
-            circ = circs[-1].copy()
-            circ.data.pop()
-            circs.append(circ)
-
-        for circ in circs:
-            circ.measure(0, 0)
-        circs = circs[::-1]
+        base_circ.measure(0, 0)
 
         # Execute jobs
         n_shots = 2048
-        job = self._backend.run(circs, shots=n_shots)
+        job = self._backend.run(base_circ, shots=n_shots)
         job.wait_for_final_state()
 
-        # Get results
-        results = job.result()
+        # Get result
+        result = job.result()
         
         # Observation is an array of the time and acceptance probabilities
-        probabilities = np.array([results.get_counts(i).get('0', 0)/n_shots for i in range(self.p)])
-        observation = np.append(probabilities, self.batch_size*self.p*len(self.pulse_progs)-1)
-        
-        # Reward is e^(-100*(1-similarity))
-        reward = 1 - spatial.distance.cosine(probabilities, self._expected)/2
-        reward = np.exp(-150*(1-reward))
+        probability = result.get_counts().get('0', 0)/n_shots
+        observation = np.array([probability, self.batch_size*self.p*len(self.pulse_progs)])
 
         # Done if one of the results have an absolute error above 5%
-        done = False
-        for i, ob in enumerate(probabilities):
-            if np.abs(ob - self._expected[i]) > 0.1:
-                done = True
-                break
+        absolute_error = np.abs(probability - self._expected)
+        if absolute_error > 0.05:
+            reward = 0
+            done = True
+        else:
+            # Reward is exponential decay
+            reward = np.exp(-3*(1 - (1-absolute_error)))
+            done = False
 
         return observation, reward, done
 
