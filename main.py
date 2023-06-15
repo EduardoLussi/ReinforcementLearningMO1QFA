@@ -8,7 +8,7 @@ if __name__ == '__main__':
     env = QFA()
     agent = Agent()
 
-    EPISODES = 30
+    EPISODES = 50
 
     file_name = 'qfa.png'
     figure_file = 'plots/' + file_name
@@ -29,10 +29,11 @@ if __name__ == '__main__':
         while not done:
             print(f"{'='*10} STEP {'='*10}")
             action = agent.choose_action(observation)
-            print(f"Action: {action*1000}e+3")
+            print(f"Action: {action*100}e+2")
             observation_, reward, done = env.step(action)
-            print(f"Observation: {observation_}")
-            print(f"Error: {np.abs(observation_[:-1]-env._expected)}")
+            print(f"Observation: {observation_[0]*100:.2f} {observation_[1]}")
+            error = np.abs(observation_[0]-env._expected)
+            print(f"Error:       {error*100:.2f}")
             print(f"Reward: {reward}")
             if done:
                 print("DONE!\n")

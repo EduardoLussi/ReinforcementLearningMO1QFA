@@ -5,33 +5,32 @@ import tensorflow_probability as tfp
 from networks import ActorCriticNetwork
 
 class Agent:
-    def __init__(self, alpha=0.01, gamma=0.99):
+    def __init__(self, alpha=0.1, gamma=0.99):
         self.gamma = gamma
         self.action = None
         
         self.actor_critic = ActorCriticNetwork()
         self.actor_critic.compile(optimizer=Adam(learning_rate=alpha))
 
+        # default_amp = 0.05021718 # ibmq_lima
+        # default_amp = 0.10223725901141269
+
+        self._default_amp = 0.69564843
+        self._max_amp = self._default_amp + 0.001
+        self._min_amp = self._default_amp - 0.001
+
     def choose_action(self, observation):
         state = tf.convert_to_tensor([observation])
         _, probs = self.actor_critic(state)
 
-        default_amp = 0.05021718 # ibmq_lima
-        # default_amp = 0.10223725901141269
-        max_amp = default_amp + 0.001
-        min_amp = default_amp - 0.001
-
-        mean = probs.numpy()[0][0]
-        std = probs.numpy()[0][1]
+        mean = self._min_amp + (self._max_amp - self._min_amp) * probs.numpy()[0][0]
+        std = probs.numpy()[0][1]/10000
 
         # Create a Normal distribution with the mean and std from probs
         action_dist = tfp.distributions.Normal(mean, std)
 
         # Sample an action from the distribution
-        action_dist_sample = action_dist.sample()
-
-        # Scale and shift the sampled action value to be within the desired range
-        action = tf.clip_by_value(((action_dist_sample + 1) / 2) * (max_amp - min_amp) + min_amp, min_amp, max_amp)
+        action = action_dist.sample()
 
         self.action = action
 
@@ -48,7 +47,11 @@ class Agent:
             state_value = tf.squeeze(state_value)
             state_value_ = tf.squeeze(state_value_)
 
-            action_dist = tfp.distributions.Normal(probs.numpy()[0][0], probs.numpy()[0][1])
+            mean = self._min_amp + (self._max_amp - self._min_amp) * probs.numpy()[0][0]
+            std = probs.numpy()[0][1]/10000
+
+            # Create a Normal distribution with the mean and std from probs
+            action_dist = tfp.distributions.Normal(mean, std)
             log_prob = action_dist.log_prob(self.action)
 
             delta = reward + self.gamma*state_value_*(1-int(done)) - state_value
