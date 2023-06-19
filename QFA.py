@@ -1,9 +1,8 @@
 from qiskit import IBMQ, pulse, QuantumCircuit
 from qiskit.circuit import Gate
-from qiskit.providers.fake_provider import FakeArmonk
+from qiskit.providers.fake_provider import FakeBelem
 from qiskit_aer import PulseSimulator
 import numpy as np
-from scipy import spatial
 
 class QFA:
     def __init__(self, p=11, batch_size=5, pulse_duration=64, qubit=0, backend='ibmq_lima'):
@@ -17,7 +16,7 @@ class QFA:
         # IBMQ.enable_account("43c3552338739471ef9b36f2ad6d17ec2cdfd4885275bead3e1d83d54509666b3f9eff7a8129fa720346d955780b4ebfc3d4f58e16c9ed24f834fad47ac43e84")
         # provider = IBMQ.get_provider("ibm-q")
         # self._backend = provider.get_backend(backend)
-        self._backend = PulseSimulator().from_backend(FakeArmonk())
+        self._backend = PulseSimulator().from_backend(FakeBelem())
 
         # Expected acceptance probabilities
         self._expected = np.cos(2*np.pi*0/self.p)**2
@@ -54,6 +53,7 @@ class QFA:
         # Execute jobs
         n_shots = 2048
         job = self._backend.run(base_circ, shots=n_shots)
+        job.wait_for_final_state()
 
         # Get result
         result = job.result()
@@ -65,7 +65,7 @@ class QFA:
         # Done if one of the results have an absolute error above 5%
         absolute_error = np.abs(probability - self._expected)
         # Reward is exponential decay
-        reward = np.exp(-5*(1 - (1-absolute_error)))
+        reward = np.exp(-10*(1 - (1-absolute_error)))
         if absolute_error > 0.05:
             reward /= 2
             done = True

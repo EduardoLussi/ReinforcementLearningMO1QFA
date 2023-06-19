@@ -5,7 +5,7 @@ import tensorflow_probability as tfp
 from networks import ActorCriticNetwork
 
 class Agent:
-    def __init__(self, alpha=0.1, gamma=0.99):
+    def __init__(self, alpha=0.05, gamma=0.99):
         self.gamma = gamma
         self.action = None
         
@@ -13,9 +13,9 @@ class Agent:
         self.actor_critic.compile(optimizer=Adam(learning_rate=alpha))
 
         # default_amp = 0.05021718 # ibmq_lima
-        # default_amp = 0.10223725901141269
+        self._default_amp = 0.10223725901141269
 
-        self._default_amp = 0.69564843
+        # self._default_amp = 0.69564843
         self._max_amp = self._default_amp + 0.001
         self._min_amp = self._default_amp - 0.001
 
@@ -52,7 +52,7 @@ class Agent:
 
             # Create a Normal distribution with the mean and std from probs
             action_dist = tfp.distributions.Normal(mean, std)
-            log_prob = action_dist.log_prob(self.action)
+            log_prob = tf.cast(action_dist.log_prob(self.action), tf.float32)
 
             delta = reward + self.gamma*state_value_*(1-int(done)) - state_value
             actor_loss = -log_prob*delta
