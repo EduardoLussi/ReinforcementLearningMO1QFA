@@ -1,18 +1,20 @@
-import tensorflow as tf
-from tensorflow.keras.optimizers import Adam
-import tensorflow_probability as tfp
+import torch as T
 
-from networks import ActorCriticNetwork
+from networks import GenericNetwork
 
 class Agent:
-    def __init__(self, alpha=0.05, gamma=0.99):
+    def __init__(self, alpha=0.001, beta=0.001, input_dims=2, gamma=0.95, n_actions=2,
+                 layer1_size=128, layer2_size=128, n_outputs=1):
         self.gamma = gamma
-        self.action = None
-        
-        self.actor_critic = ActorCriticNetwork()
-        self.actor_critic.compile(optimizer=Adam(learning_rate=alpha))
+        self.log_probs = None
+        self.n_outputs = n_outputs
 
-        # default_amp = 0.05021718 # ibmq_lima
+        self.actor = GenericNetwork(alpha, input_dims, layer1_size,
+                                           layer2_size, n_actions=n_actions)
+        self.critic = GenericNetwork(beta, input_dims, layer1_size,
+                                            layer2_size, n_actions=1)
+
+        # self._default_amp = 0.05021718 # ibmq_lima
         self._default_amp = 0.10223725901141269
 
         # self._default_amp = 0.69564843
@@ -20,56 +22,56 @@ class Agent:
         self._min_amp = self._default_amp - 0.001
 
     def choose_action(self, observation):
-        state = tf.convert_to_tensor([observation])
-        _, probs = self.actor_critic(state)
-
-        mean = self._min_amp + (self._max_amp - self._min_amp) * probs.numpy()[0][0]
-        std = probs.numpy()[0][1]/10000
-
-        # Create a Normal distribution with the mean and std from probs
-        action_dist = tfp.distributions.Normal(mean, std)
-
-        # Sample an action from the distribution
-        action = action_dist.sample()
-
-        self.action = action
-
-        return action.numpy()
-
-    def learn(self, state, reward, state_, done):
-        state = tf.convert_to_tensor([state], dtype=tf.float32)
-        state_ = tf.convert_to_tensor([state_], dtype=tf.float32)
-        reward = tf.convert_to_tensor(reward, dtype=tf.float32)
-        with tf.GradientTape(persistent=True) as tape:
-            state_value, probs = self.actor_critic(state)
-            state_value_, _ = self.actor_critic(state_)
-
-            state_value = tf.squeeze(state_value)
-            state_value_ = tf.squeeze(state_value_)
-
-            mean = self._min_amp + (self._max_amp - self._min_amp) * probs.numpy()[0][0]
-            std = probs.numpy()[0][1]/10000
-
-            # Create a Normal distribution with the mean and std from probs
-            action_dist = tfp.distributions.Normal(mean, std)
-            log_prob = tf.cast(action_dist.log_prob(self.action), tf.float32)
-
-            delta = reward + self.gamma*state_value_*(1-int(done)) - state_value
-            actor_loss = -log_prob*delta
-            critic_loss = delta**2
-            total_loss = actor_loss + critic_loss
+        mu, sigma  = self.actor.forward(observation)
         
-        actor_critic_variables = self.actor_critic.trainable_variables
+        print(mu.item(), sigma.item())
+        # mu = self._min_amp + (self._max_amp - self._min_amp) * mu
+        # sigma = sigma / 5000
+        # print(f"Choosing action N({mu.item()*1e2:.4f}e-2, {sigma.item()*1e7:.4f}e-7)")
+        sigma = T.exp(sigma)
+        action_probs = T.distributions.Normal(mu, sigma)
+        probs = action_probs.sample(sample_shape=T.Size([self.n_outputs]))
+        self.log_probs = action_probs.log_prob(probs).to(self.actor.device)
+        
+        action = T.sigmoid(probs)
+        action = self._min_amp + (self._max_amp - self._min_amp) * action
 
-        gradient = tape.gradient(total_loss, actor_critic_variables)
-        self.actor_critic.optimizer.apply_gradients(zip(
-            gradient, actor_critic_variables
-        ))
+        return action.item()
+
+    def learn(self, state, reward, new_state, done):
+        self.actor.optimizer.zero_grad()
+        self.critic.optimizer.zero_grad()
+
+        print("learning...")
+
+        critic_value_ = self.critic.forward(new_state)
+        critic_value = self.critic.forward(state)
+
+        print(f"v_={critic_value_.item()}, v={critic_value.item()}")
+
+        reward = T.tensor(reward, dtype=T.float).to(self.actor.device)
+        delta = reward + self.gamma*critic_value_*(1-int(done)) - critic_value
+
+        print(f"delta={delta.item()}")
+
+        actor_loss = -self.log_probs * delta
+        critic_loss = delta**2
+
+        print(f"actor_loss={actor_loss.item()}, critic_loss={critic_loss.item()}")
+
+        (actor_loss + critic_loss).backward()
+
+        self.actor.optimizer.step()
+        self.critic.optimizer.step()
+
+        return actor_loss, critic_loss
 
     def save_models(self):
         print('... saving models ...')
-        self.actor_critic.save_weights(self.actor_critic.checkpoint_file)
+        T.save(self.actor.state_dict(), self.actor.checkpoint_file)
+        T.save(self.critic.state_dict(), self.critic.checkpoint_file)
 
     def load_models(self):
         print('... loading models ...')
-        self.actor_critic.load_weights(self.actor_critic.checkpoint_file)
+        self.actor.load_state_dict(T.load(self.actor.checkpoint_file))
+        self.critic.load_state_dict(T.load(self.critic.checkpoint_file))

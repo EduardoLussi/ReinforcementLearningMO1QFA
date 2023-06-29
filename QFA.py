@@ -5,7 +5,7 @@ from qiskit_aer import PulseSimulator
 import numpy as np
 
 class QFA:
-    def __init__(self, p=11, batch_size=5, pulse_duration=64, qubit=0, backend='ibmq_lima'):
+    def __init__(self, p=11, batch_size=2, pulse_duration=64, qubit=0, backend='ibmq_lima'):
         self.p = p                              # MOD^p
         self.pulse_progs = []                   # Pulse programs for the episode
         self.pulse_duration = pulse_duration    # Pulse duration
@@ -60,14 +60,20 @@ class QFA:
         
         # Observation is an array of the time and acceptance probabilities
         probability = result.get_counts().get('0', 0)/n_shots
-        observation = np.array([probability, self.batch_size*self.p*len(self.pulse_progs)])
+        repetitions = self.batch_size*self.p*len(self.pulse_progs)
+        observation = np.array([probability, repetitions/1000])
 
         # Done if one of the results have an absolute error above 5%
         absolute_error = np.abs(probability - self._expected)
         # Reward is exponential decay
         reward = np.exp(-10*(1 - (1-absolute_error)))
         if absolute_error > 0.05:
-            reward /= 2
+            if absolute_error > 0.5:
+                reward = 0
+            else:
+                reward /= 2
+            done = True
+        elif repetitions >= 374:
             done = True
         else:
             done = False

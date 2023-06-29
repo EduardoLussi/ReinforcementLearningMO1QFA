@@ -1,32 +1,36 @@
+import torch as T
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
 import os
+import time
 
-import tensorflow as tf
-from tensorflow import keras
-from keras.layers import Dense
-
-class ActorCriticNetwork(keras.Model):
-    def __init__(self, fc1_dims=512, fc2_dims=256,
-                 name='actor_critic', chkpt='tmp/actor_critic'):
-        super(ActorCriticNetwork, self).__init__()
-        
+class GenericNetwork(nn.Module):
+    def __init__(self, alpha, input_dims, fc1_dims, fc2_dims,
+                 n_actions):
+        super(GenericNetwork, self).__init__()
+        self.input_dims = input_dims
         self.fc1_dims = fc1_dims
         self.fc2_dims = fc2_dims
-
-        self.model_name = name
+        self.n_actions = n_actions
         
-        self.checkpoint_dir = chkpt
-        self.checkpoint_file = os.path.join(self.checkpoint_dir, name+'_ac')
+        self.fc1 = nn.Linear(self.input_dims, self.fc1_dims)
+        self.fc2 = nn.Linear(self.fc1_dims, self.fc2_dims)
+        self.fc3 = nn.Linear(self.fc2_dims, self.n_actions)
+        
+        self.optimizer = optim.Adam(self.parameters(), lr=alpha)
+        
+        self.device = "cuda" if T.cuda.is_available() else "cpu"        
+        self.to(self.device)
 
-        self.fc1 = Dense(self.fc1_dims, activation='relu')
-        self.fc2 = Dense(self.fc2_dims, activation='relu')
-        self.v = Dense(1, activation=None)
-        self.pi = Dense(2, activation='sigmoid')
-    
-    def call(self, state):
-        value = self.fc1(state)
-        value = self.fc2(value)
+        time_file = time.strftime("%m%d-%H%M") + ("_actor" if n_actions == 2 else "_critic")
+        self.checkpoint_dir = f'tmp/actor_critic'
+        self.checkpoint_file = os.path.join(self.checkpoint_dir, time_file)
 
-        v = self.v(value)
-        pi = self.pi(value)
+    def forward(self, observation):
+        state = T.tensor(observation, dtype=T.float).to(self.device)
+        x = F.relu(self.fc1(state))
+        x = F.relu(self.fc2(x))
+        x = self.fc3(x)
 
-        return v, pi
+        return x
